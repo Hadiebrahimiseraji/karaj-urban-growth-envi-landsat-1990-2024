@@ -1,0 +1,71 @@
+sensors:
+  tm5:
+    name: "Landsat 5 Thematic Mapper"
+    bands:
+      1:
+        name: "Blue"
+        wavelength_micrometers: 0.485
+        bandwidth_micrometers: 0.07
+      2:
+        name: "Green"
+        wavelength_micrometers: 0.560
+        bandwidth_micrometers: 0.08
+      3:
+        name: "Red"
+        wavelength_micrometers: 0.660
+        bandwidth_micrometers: 0.06
+      4:
+        name: "Near-Infrared"
+        wavelength_micrometers: 0.830
+        bandwidth_micrometers: 0.14
+      5:
+        name: "Shortwave-Infrared 1"
+        wavelength_micrometers: 1.650
+        bandwidth_micrometers: 0.20
+      7:
+        name: "Shortwave-Infrared 2"
+        wavelength_micrometers: 2.215
+        bandwidth_micrometers: 0.27
+  oli8:
+    name: "Landsat 8 Operational Land Imager"
+    bands:
+      2:
+        name: "Blue"
+        wavelength_micrometers: 0.482
+        bandwidth_micrometers: 0.06
+      3:
+        name: "Green"
+        wavelength_micrometers: 0.562
+        bandwidth_micrometers: 0.06
+      4:
+        name: "Red"
+        wavelength_micrometers: 0.655
+        bandwidth_micrometers: 0.04
+      5:
+        name: "Near-Infrared"
+        wavelength_micrometers: 0.865
+        bandwidth_micrometers: 0.03
+      6:
+        name: "Shortwave-Infrared 1"
+        wavelength_micrometers: 1.609
+        bandwidth_micrometers: 0.08
+      7:
+        name: "Shortwave-Infrared 2"
+        wavelength_micrometers: 2.201
+        bandwidth_micrometers: 0.20
+
+wavelength_units: "Micrometers"
+
+spectral_mapping:
+  red_band_tm5: 3
+  red_band_oli8: 4
+  green_band_tm5: 2
+  green_band_oli8: 3
+  blue_band_tm5: 1
+  blue_band_oli8: 2
+  nir_band_tm5: 4
+  nir_band_oli8: 5
+  swir1_band_tm5: 5
+  swir1_band_oli8: 6
+  swir2_band_tm5: 7
+  swir2_band_oli8: 7
