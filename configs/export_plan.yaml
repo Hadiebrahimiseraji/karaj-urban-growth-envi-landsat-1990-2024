@@ -1,0 +1,48 @@
+export_format: "PNG"
+compression_level: 9
+quality_95_percent: true
+
+outputs_per_year:
+  required_files:
+    - filename: "01_RGB.png"
+      description: "True-color RGB composite"
+      bands: [3, 2, 1]
+    - filename: "02_NDVI.png"
+      description: "Normalized Difference Vegetation Index with color mapping"
+      colormap: "viridis"
+    - filename: "03_NDBI.png"
+      description: "Normalized Difference Built-up Index with color mapping"
+      colormap: "plasma"
+    - filename: "04_NDWI.png"
+      description: "Normalized Difference Water Index with color mapping"
+      colormap: "blues"
+    - filename: "05_LULC.png"
+      description: "Land Use and Land Cover classification with legend"
+      include_legend: true
+
+years_to_export:
+  - 1990
+  - 2000
+  - 2010
+  - 2024
+
+change_analysis_outputs:
+  1990_to_2024:
+    - filename: "change_map.png"
+      description: "Post-classification comparison change map showing transitions"
+    - filename: "ndvi_change.png"
+      description: "NDVI change magnitude 1990 to 2024"
+    - filename: "ndbi_change.png"
+      description: "NDBI change magnitude 1990 to 2024"
+    - filename: "ndwi_change.png"
+      description: "NDWI change magnitude 1990 to 2024"
+    - filename: "transition_map.png"
+      description: "Classification transition matrix visualization"
+
+output_organization:
+  base_directory: "docs/assets/outputs"
+  year_subdirectories: true
+  change_subdirectory: "change_1990_2024"
+  include_metadata: true
+  include_colorbar: true
+  include_scale_bar: true
