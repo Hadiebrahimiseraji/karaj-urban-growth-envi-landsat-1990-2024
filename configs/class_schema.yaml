@@ -1,0 +1,25 @@
+classes:
+  1:
+    name: "Water"
+    description: "Open water bodies including rivers, reservoirs, ponds, and wetlands"
+    rgb_color: [0, 0, 255]
+  2:
+    name: "Urban"
+    description: "Developed areas with buildings, roads, parking, commercial and industrial zones"
+    rgb_color: [128, 128, 128]
+  3:
+    name: "Agriculture"
+    description: "Cultivated croplands, irrigated fields, orchards, and agricultural greenhouses"
+    rgb_color: [173, 255, 47]
+  4:
+    name: "Forest"
+    description: "Dense woody vegetation with greater than 40 percent canopy cover"
+    rgb_color: [34, 139, 34]
+  5:
+    name: "Bare Soil"
+    description: "Exposed mineral soil with less than 10 percent vegetation cover, including eroded areas and rocky outcrops"
+    rgb_color: [210, 180, 140]
+
+class_count: 5
+no_data_value: 0
+no_data_color: [200, 200, 200]
