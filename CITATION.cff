@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Your Name"
+    given-names: ""
+    orcid: ""
+title: "Karaj Urban Growth and Environmental Impacts (1990–2024) Using ENVI and Landsat"
+version: 1.0.0
+date-released: 2026-01-04
+repository-code: "https://github.com/Hadiebrahimiseraji/karaj-urban-growth-envi-landsat-1990-2024"
+license: "MIT"
+preferred-citation:
+  type: thesis
+  authors:
+    - family-names: "Your Name"
+      given-names: ""
+  title: "Karaj Urban Growth and Environmental Impacts (1990–2024) Using ENVI and Landsat"
+  year: 2026
+  url: "https://github.com/Hadiebrahimiseraji/karaj-urban-growth-envi-landsat-1990-2024"
