@@ -1,0 +1,43 @@
+site_name: Karaj Urban Growth and Environmental Impacts (1990–2024)
+site_description: "A comprehensive analysis of land use and land cover change in Karaj Municipality using Landsat imagery and ENVI processing"
+site_author: "Your Name"
+docs_dir: docs
+site_dir: site
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: blue
+    accent: teal
+  typography:
+    font:
+      text: Roboto
+      code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+markdown_extensions:
+  - tables
+  - footnotes
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+nav:
+  - Home: index.md
+  - Research Background: research_background.md
+  - Data and Study Area: data_and_study_area.md
+  - Preprocessing: preprocessing.md
+  - Spectral Indices: spectral_indices.md
+  - LULC Classification: lulc_classification.md
+  - Change Detection: change_detection.md
+  - Quality Assurance: quality_assurance.md
+  - Outputs Gallery: outputs_gallery.md
+  - Reproducibility: reproducibility.md
+  - Limitations: limitations.md
+  - References: references.md
+strict: false
