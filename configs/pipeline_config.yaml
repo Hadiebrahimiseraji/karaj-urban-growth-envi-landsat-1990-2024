@@ -1,0 +1,94 @@
+project_metadata:
+  title: "Karaj Urban Growth and Environmental Impacts (1990-2024) Using ENVI and Landsat"
+  study_area: "Karaj Municipality, Alborz Province, Iran"
+  analysis_period_start: 1990
+  analysis_period_end: 2024
+  spatial_reference: "UTM Zone 39 North, WGS84"
+  pixel_size_meters: 30
+
+data_input:
+  raw_data_directory: "data/raw"
+  input_files:
+    1990:
+      sensor: "tm5"
+      bands: [1, 2, 3, 4, 5, 7]
+      file_pattern: "landsat_tm5_1990_sr_b{band}.tif"
+    2000:
+      sensor: "tm5"
+      bands: [1, 2, 3, 4, 5, 7]
+      file_pattern: "landsat_tm5_2000_sr_b{band}.tif"
+    2010:
+      sensor: "tm5"
+      bands: [1, 2, 3, 4, 5, 7]
+      file_pattern: "landsat_tm5_2010_sr_b{band}.tif"
+    2024:
+      sensor: "oli8"
+      bands: [2, 3, 4, 5, 6, 7]
+      file_pattern: "landsat_oli8_2024_sr_b{band}.tif"
+  aoi_path: "data/aoi/karaj_municipality.shp"
+  roi_path: "data/roi/training_regions.shp"
+
+preprocessing:
+  output_directory: "outputs"
+  create_rgb_composite: true
+  apply_qa_masking: true
+  qa_mask_clouds: true
+  qa_mask_shadows: true
+  radiometric_harmonization: true
+  reproject_to_utm: true
+  target_projection: "EPSG:32939"
+
+spectral_indices:
+  calculate_ndvi: true
+  calculate_ndbi: true
+  calculate_ndwi: true
+  indices_output_format: "int16"
+  indices_scaling_factor: 10000
+
+classification:
+  class_schema_file: "configs/class_schema.yaml"
+  algorithm: "svm"
+  svm_kernel: "rbf"
+  svm_c_parameter: 1.0
+  svm_gamma: "auto"
+  training_validation_split: 0.7
+  minimum_accuracy_threshold: 0.80
+  apply_majority_filter: true
+  majority_filter_window_size: 3
+
+change_detection:
+  baseline_year: 1990
+  final_year: 2024
+  comparison_years: [2000, 2010, 2024]
+  method: "post_classification_comparison"
+  index_differencing: true
+  ndvi_change_threshold: 500
+  ndbi_change_threshold: 500
+  ndwi_change_threshold: 400
+  transition_matrix_output: true
+  change_map_output: true
+
+export_settings:
+  geotiff_output: true
+  png_output: true
+  png_compression_level: 9
+  export_plan_file: "configs/export_plan.yaml"
+  docs_assets_destination: "docs/assets/outputs"
+  publish_to_website: true
+
+logging:
+  log_file: "outputs/run_log.json"
+  log_level: "info"
+  log_processing_steps: true
+  log_qa_results: true
+  machine_readable_format: true
+
+quality_assurance:
+  validate_inputs: true
+  check_metadata: true
+  verify_coregs: true
+  check_index_ranges: true
+  accuracy_validation: true
+  stability_check: true
+  cross_method_consistency: true
+  generate_qa_report: true
